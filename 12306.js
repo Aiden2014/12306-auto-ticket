@@ -1,15 +1,18 @@
+let days = 3
+
 console.show()
 while (true) {
   if (findTicket(true) || findTicket(false)) {
     break;
   }
 }
+
 function findTicket(isForward) {
   className("android.widget.Button").findOne().click();
   sleep(1000);
   className("android.widget.TextView").text("价格最高").findOne().click();
   className("android.widget.TextView").text("价格最高").findOne().click();
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < days - 1; i++) {
     if (className("android.widget.TextView").textMatches("/硬卧有|硬卧\d{1,2}张/g").findOnce()) {
       log("找到硬卧");
       return true;
